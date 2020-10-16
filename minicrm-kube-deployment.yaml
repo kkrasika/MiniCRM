@@ -30,7 +30,7 @@ kind: Deployment
 metadata:
   name: knote
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: knote
@@ -44,9 +44,6 @@ spec:
           image: minicrm-api-docker-img
           ports:
             - containerPort: 8080
-          env:
-            - name: MONGO_URL
-              value: mongodb://mongo:27017/dev
           imagePullPolicy: Never
 ---
 apiVersion: v1
@@ -77,7 +74,7 @@ kind: Deployment
 metadata:
   name: mongo
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: mongo
